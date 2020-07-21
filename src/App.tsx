@@ -1,16 +1,26 @@
 import React from 'react';
-
+import { Route, NavLink, Switch } from 'react-router-dom';
 import './App.css';
+import { Home } from './components/Home';
 
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
-
-const App = () => (
+const App: React.FC = () => (
   <div className="App">
-    <h1>Tabs with router</h1>
+    <ul>
+      <li>
+        <NavLink to="/home" />
+      </li>
+      <li>
+        <NavLink to="/home/tabs" />
+      </li>
+    </ul>
+
+    <Switch>
+      <Route path="/" component={Home} />
+      <Route
+        path="/tabs"
+        // render={({ match }) => <Tabs tabs={tabs} path={match.path} />}
+      />
+    </Switch>
   </div>
 );
 
