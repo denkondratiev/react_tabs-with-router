@@ -1,6 +1,6 @@
-import React from 'react';
-import { NavLink, Route } from 'react-router-dom';
-import { Tab } from './Tab';
+import React from "react";
+import { NavLink, Route } from "react-router-dom";
+import { Tab } from "./Tab";
 
 interface TabsI {
   id: string;
@@ -21,12 +21,9 @@ export const Tabs: React.FC<TabsProps> = (props) => {
       <h1>TABS</h1>
       <nav>
         <ul className="nav nav-tabs">
-          {tabs.map(tab => (
+          {tabs.map((tab) => (
             <li key={tab.title} className="nav-item">
-              <NavLink
-                to={`${path}/${tab.id}`}
-                className="nav-link"
-              >
+              <NavLink to={`${path}/${tab.id}`} className="nav-link">
                 {tab.title}
               </NavLink>
             </li>
@@ -37,12 +34,14 @@ export const Tabs: React.FC<TabsProps> = (props) => {
         <ul className="nav nav-tabs">
           {tabs.map((tab) => (
             <li key={tab.title} className="nav-item">
-              <Route path={`${path}/${tab.id}`} render={() => <Tab content={tab.content} />} />
+              <Route
+                path={`${path}/${tab.id}`}
+                render={() => <Tab content={tab.content} />}
+              />
             </li>
           ))}
         </ul>
       </nav>
-
     </div>
   );
 };
